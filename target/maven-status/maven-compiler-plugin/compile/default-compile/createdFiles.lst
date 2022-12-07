@@ -1,0 +1,7 @@
+rw/ac/rca/sms/orm/Student.class
+rw/ac/rca/sms/orm/Course.class
+rw/ac/rca/sms/util/SmsSessionFactory.class
+rw/ac/rca/sms/orm/Instructor.class
+rw/ac/rca/sms/mainApp/Starter.class
+rw/ac/rca/sms/orm/Address.class
+rw/ac/rca/sms/orm/ClassRoom.class
