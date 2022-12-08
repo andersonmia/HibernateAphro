@@ -5,15 +5,18 @@ import org.hibernate.annotations.GeneratorType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import java.util.Date;
 
+@MappedSuperclass
 public abstract class Person {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String name;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private  int id;
+    private  String name;
     private Date dob;
     private String phoneNumber;
+
 
     public int getId() {
         return id;

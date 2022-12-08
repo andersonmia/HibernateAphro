@@ -8,33 +8,32 @@ import java.util.List;
 @Table(name = "student")
 public class Student extends Person {
 
-    private String registrationNumber;
+
+    @ManyToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "student")
     private List<Course> courses;
 
-    @ManyToOne
-    @JoinColumn(name = "address-id")
-    private Address address;
+    public Student() {
+    }
 
 
-//    public Student(String name, String registrationNumber, Date dateOfBirth) {
-//        this.name = name;
-//        this.registrationNumber = registrationNumber;
-//        this.dateOfBirth = dateOfBirth;
-//    }
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 
-    public String getRegistrationNumber() {
-        return registrationNumber;
-    }
-    public void setRegistrationNumber(String registrationNumber) {
-        this.registrationNumber = registrationNumber;
-    }
-    public List<Course> getCourses() {
-        return courses;
-    }
     public void setCourses(List<Course> courses) {
         this.courses = courses;
     }
 
+    public Address getAddress() {
+        return address;
+    }
+
+
+    public List<Course> getCourses() {
+        return courses;
+    }
 }
