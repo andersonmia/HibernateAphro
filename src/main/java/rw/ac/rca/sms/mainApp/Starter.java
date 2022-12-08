@@ -17,57 +17,42 @@ public class Starter {
     public static void main(String[] args){
         Address address1 = new Address("Nyabihu" , "KN4 St13");
         Address address2 = new Address("Kigali" , "KG3 St18");
-<<<<<<< HEAD
 
         Student student1 = new Student();
         Student student2 = new Student();
-
+        Course course1 = new Course("Biology" , 12 , 120);
+        Course course2 = new Course("Chemistry" , 10 , 100);
         Instructor instructor1 = new Instructor();
         Instructor instructor2 = new Instructor();
 
-        Course course1 = new Course("Biology" , 12 , 120);
-        Course course2 = new Course("Chemistry" , 10 , 100);
-//
-//        //setting the address id manuallly
+//        setting the address id manuallly
 //        address1.setAddress_id(1);
 //        address2.setAddress_id(2);
-=======
-        Student student1 = new Student();
-        Student student2 = new Student();
-        Course course1 = new Course("Biology" , 12 , 120);
-        Course course2 = new Course("Chemistry" , 10 , 100);
-        Instructor instructor1 = new Instructor();
-        Instructor instructor2 = new Instructor();
-
-        //setting the address id manuallly
-        address1.setAddress_id(1);
-        address2.setAddress_id(2);
->>>>>>> master
 
         //the first instructor
         instructor1.setAddress(address1);
         instructor1.setDob(new Date(1980 , 06 , 16));
-        instructor1.setPhoneNumber("0788671071");
-        instructor1.setGender('M');
-        instructor1.setName("Jazzy Bruno");
+        instructor1.setPhoneNumber("0788271071");
+        instructor1.setGender('F');
+        instructor1.setName("Mia Anderson");
 
         //the second instructor
         instructor2.setAddress(address2);
         instructor2.setDob(new Date(1950 , 05 , 16));
-        instructor2.setPhoneNumber("0788099764");
+        instructor2.setPhoneNumber("0778099764");
         instructor2.setGender('F');
-        instructor2.setName("Joice Mary");
+        instructor2.setName("Ingabire Divine");
 
         //the first student
         student1.setAddress(address1);
         student1.setDob(new Date(2005 , 05 , 16));
-        student1.setName("Ganza Vivens");
-        student1.setPhoneNumber("0798980764");
+        student1.setName("Lauren James");
+        student1.setPhoneNumber("0798980264");
 
         //the second students
         student2.setAddress(address2);
         student2.setDob(new Date(2007 , 05 , 16));
-        student2.setName("Gwiza Rolande");
+        student2.setName("Aline Frost");
         student2.setPhoneNumber("0798985664");
 
         course1.setStudent(student1);
@@ -88,7 +73,6 @@ public class Starter {
 
             Transaction transaction = session.beginTransaction();
             System.out.println("Beginning transaction...............");
-<<<<<<< HEAD
 
             session.saveOrUpdate(address1);
             session.saveOrUpdate(address2);
@@ -98,30 +82,10 @@ public class Starter {
 
             session.saveOrUpdate(student1);
             session.saveOrUpdate(student2);
-=======
-
-            session.saveOrUpdate(address1);
-            session.saveOrUpdate(address2);
-
-            session.saveOrUpdate(instructor1);
-            session.saveOrUpdate(instructor2);
->>>>>>> master
 
             session.saveOrUpdate(course1);
             session.saveOrUpdate(course2);
 
-<<<<<<< HEAD
-
-
-            System.out.println("Committing the transactions...............");
-
-=======
-            session.saveOrUpdate(student1);
-            session.saveOrUpdate(student2);
-
-            System.out.println("Committing the transactions...............");
-
->>>>>>> master
             transaction.commit();
             System.out.println("Before closing the session..........");
 
