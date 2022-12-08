@@ -10,69 +10,90 @@ import rw.ac.rca.sms.orm.Course;
 import rw.ac.rca.sms.orm.Instructor;
 import rw.ac.rca.sms.orm.Student;
 
+import java.sql.SQLException;
 import java.util.Date;
-
+@SuppressWarnings("deprecated")
 public class Starter {
-    //private static SessionFactory factory;
-    public static  void main(String[] args){
+    public static void main(String[] args){
+        Address address1 = new Address("Nyabihu" , "KN4 St13");
+        Address address2 = new Address("Kigali" , "KG3 St18");
+        Student student1 = new Student();
+        Student student2 = new Student();
+        Course course1 = new Course("Biology" , 12 , 120);
+        Course course2 = new Course("Chemistry" , 10 , 100);
+        Instructor instructor1 = new Instructor();
+        Instructor instructor2 = new Instructor();
 
-        Address address = new Address("Nyabihu","KN4 StB");
+        //setting the address id manuallly
+        address1.setAddress_id(1);
+        address2.setAddress_id(2);
 
-//        Student st1 = new Student("Mia","rca0zgv",new Date());
-//        Student st2 = new Student("Anderson","rca086bgh",new Date());
-//
-//        Instructor inst1 = new Instructor("Leo","1 1996 7 345", "+25078392402",new Date());
-//        inst1.setAddress(address);
-//        Instructor inst2 = new Instructor("John","1 199687 345", "+25078391002",new Date());
-//        inst2.setAddress(address);
+        //the first instructor
+        instructor1.setAddress(address1);
+        instructor1.setDob(new Date(1980 , 06 , 16));
+        instructor1.setPhoneNumber("0788671071");
+        instructor1.setGender('M');
+        instructor1.setName("Jazzy Bruno");
 
-        Course course1 = new Course("Maths",5);
-//        course1.setInstructor(inst1);
-        Course course2 = new Course("English",3);
-//        course2.setInstructor(inst1);
-//        course1.setStudent(st1);
-//        course2.setStudent(st1);
+        //the second instructor
+        instructor2.setAddress(address2);
+        instructor2.setDob(new Date(1950 , 05 , 16));
+        instructor2.setPhoneNumber("0788099764");
+        instructor2.setGender('F');
+        instructor2.setName("Joice Mary");
 
-        //loading config file
-        System.out.println("loading configuration file...........");
+        //the first student
+        student1.setAddress(address1);
+        student1.setDob(new Date(2005 , 05 , 16));
+        student1.setName("Ganza Vivens");
+        student1.setPhoneNumber("0798980764");
+
+        //the second students
+        student2.setAddress(address2);
+        student2.setDob(new Date(2007 , 05 , 16));
+        student2.setName("Gwiza Rolande");
+        student2.setPhoneNumber("0798985664");
+
+        course1.setStudent(student1);
+        course1.setStudent(student2);
+        System.out.println("Finished closing the factory and session..........");
+
+        course1.setInstructor(instructor1);
+        course2.setInstructor(instructor1);
+
         Configuration config = new Configuration();
-        config.configure();
+        config.configure("hibernate.cfg.xml");
+        System.out.println("config file loaded ..............");
 
-        //creating session object
-        System.out.println("Opening the session.......");
         try {
             @SuppressWarnings("deprecation")
-
             SessionFactory factory = config.buildSessionFactory();
             Session session = factory.openSession();
 
-            //open transaction
-            System.out.println("Beginning transactions");
             Transaction transaction = session.beginTransaction();
+            System.out.println("Beginning transaction...............");
 
-            //saving objects
-            session.saveOrUpdate(address);
+            session.saveOrUpdate(address1);
+            session.saveOrUpdate(address2);
+
+            session.saveOrUpdate(instructor1);
+            session.saveOrUpdate(instructor2);
 
             session.saveOrUpdate(course1);
             session.saveOrUpdate(course2);
 
-//            session.saveOrUpdate(inst1);
-//            session.saveOrUpdate(inst2);
-//
-//            session.saveOrUpdate(st1);
-//            session.saveOrUpdate(st2);
+            session.saveOrUpdate(student1);
+            session.saveOrUpdate(student2);
 
-            //committing transactions
-            System.out.println("Committing transactions");
+            System.out.println("Committing the transactions...............");
+
             transaction.commit();
+            System.out.println("Before closing the session..........");
 
-            //closing connections
-            System.out.println("Before closing the session");
             session.close();
             factory.close();
 
-            System.out.println("Execution completed........");
-
+            System.out.println("Finished closing the factory and session..........");
         } catch (HibernateException e) {
             e.printStackTrace();
         }

@@ -31,7 +31,6 @@
 		
 		<!-- Models -->
 		<mapping class="rw.ac.rca.sms.orm.Address" />
-		<mapping class="rw.ac.rca.sms.orm.ClassRoom" />
 		<mapping class="rw.ac.rca.sms.orm.Course" />
 		<mapping class="rw.ac.rca.sms.orm.Instructor" />
 		<mapping class="rw.ac.rca.sms.orm.Student" />

@@ -6,43 +6,40 @@ import java.util.List;
 @Entity
 @Table(name = "instructor")
 public class Instructor extends Person {
-
-    private String nid;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "instructor")
-    private List<Course> courses;
+    private char gender;
     @ManyToOne
-    @JoinColumn(name = "address-id")
+    @JoinColumn(name = "address_id")
     private Address address;
 
-    public Instructor() {
-    }
+    @OneToMany( cascade = CascadeType.ALL , mappedBy = "instructor")
+    private List<Course> courses;
 
-//    public Instructor(String name, String nid, String phoneNumber, Date dateOfBirth) {
-//        this.name = name;
-//        this.nid = nid;
-//        this.phoneNumber = phoneNumber;
-//        this.dateOfBirth = dateOfBirth;
-//    }
+    public Instructor(){}
 
 
-    public String getNid() {
-        return nid;
+    public void setGender(char gender) {
+        this.gender = gender;
     }
-    public void setNid(String nid) {
-        this.nid = nid;
-    }
-    public List<Course> getCourses() {
-        return courses;
-    }
-    public void setCourses(List<Course> courses) {
-        this.courses = courses;
-    }
-    public Address getAddress() {
-        return address;
-    }
+
     public void setAddress(Address address) {
         this.address = address;
     }
+
+//    public void setCourses(List<Course> courses) {
+//        this.courses = courses;
+//    }
+
+
+    public char getGender() {
+        return gender;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+//    public List<Course> getCourses() {
+//        return courses;
+//    }
 
 }
