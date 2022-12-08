@@ -17,6 +17,7 @@ public class Starter {
     public static void main(String[] args){
         Address address1 = new Address("Nyabihu" , "KN4 St13");
         Address address2 = new Address("Kigali" , "KG3 St18");
+<<<<<<< HEAD
 
         Student student1 = new Student();
         Student student2 = new Student();
@@ -30,6 +31,18 @@ public class Starter {
 //        //setting the address id manuallly
 //        address1.setAddress_id(1);
 //        address2.setAddress_id(2);
+=======
+        Student student1 = new Student();
+        Student student2 = new Student();
+        Course course1 = new Course("Biology" , 12 , 120);
+        Course course2 = new Course("Chemistry" , 10 , 100);
+        Instructor instructor1 = new Instructor();
+        Instructor instructor2 = new Instructor();
+
+        //setting the address id manuallly
+        address1.setAddress_id(1);
+        address2.setAddress_id(2);
+>>>>>>> master
 
         //the first instructor
         instructor1.setAddress(address1);
@@ -75,6 +88,7 @@ public class Starter {
 
             Transaction transaction = session.beginTransaction();
             System.out.println("Beginning transaction...............");
+<<<<<<< HEAD
 
             session.saveOrUpdate(address1);
             session.saveOrUpdate(address2);
@@ -84,14 +98,30 @@ public class Starter {
 
             session.saveOrUpdate(student1);
             session.saveOrUpdate(student2);
+=======
+
+            session.saveOrUpdate(address1);
+            session.saveOrUpdate(address2);
+
+            session.saveOrUpdate(instructor1);
+            session.saveOrUpdate(instructor2);
+>>>>>>> master
 
             session.saveOrUpdate(course1);
             session.saveOrUpdate(course2);
 
+<<<<<<< HEAD
 
 
             System.out.println("Committing the transactions...............");
 
+=======
+            session.saveOrUpdate(student1);
+            session.saveOrUpdate(student2);
+
+            System.out.println("Committing the transactions...............");
+
+>>>>>>> master
             transaction.commit();
             System.out.println("Before closing the session..........");
 

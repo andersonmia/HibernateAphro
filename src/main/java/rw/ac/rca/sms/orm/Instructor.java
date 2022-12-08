@@ -27,6 +27,12 @@ public class Instructor extends Person {
         this.address = address;
     }
 
+<<<<<<< HEAD
+=======
+//    public void setCourses(List<Course> courses) {
+//        this.courses = courses;
+//    }
+>>>>>>> master
 
 
     public char getGender() {
@@ -36,4 +42,12 @@ public class Instructor extends Person {
     public Address getAddress() {
         return address;
     }
+<<<<<<< HEAD
+=======
+
+//    public List<Course> getCourses() {
+//        return courses;
+//    }
+
+>>>>>>> master
 }
