@@ -6,10 +6,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import java.io.Serializable;
 import java.util.Date;
 
 @MappedSuperclass
-public abstract class Person {
+public abstract class Person implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private  int id;
